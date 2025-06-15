@@ -4,6 +4,7 @@ import ScheduleForm from '../components/scheduleForm'; // Form admin
 import ScheduleTable from '../components/scheduleTable'; // Tabel jadwal utama
 import SidebarAdmin from './SidebarAdmin';
 import axios from 'axios'; // Import axios
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AdminDashboard = () => {
   const [showForm, setShowForm] = useState(false);
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
   // Fungsi untuk mengambil jadwal pending
   const fetchPendingSchedules = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/jadwal/pending');
+      const response = await axios.get(`${API_URL}/jadwal/pending`);
       setPendingSchedules(response.data);
     } catch (error) {
       console.error('Gagal memuat jadwal tertunda:', error);
@@ -41,7 +42,7 @@ const AdminDashboard = () => {
     setMessage('');
     setIsError(false);
     try {
-      const response = await axios.post('http://localhost:5000/jadwal', formData); // Endpoint admin
+      const response = await axios.post(`${API_URL}/jadwal`, formData); // Endpoint admin
       setMessage(response.data.msg || 'Jadwal berhasil ditambahkan oleh Admin!');
       setIsError(false);
       setShowForm(false);
@@ -65,7 +66,7 @@ const AdminDashboard = () => {
     setMessage('');
     setIsError(false);
     try {
-      const response = await axios.patch(`http://localhost:5000/jadwal/confirm/${id}`, { action });
+      const response = await axios.patch(`${API_URL}/jadwal/confirm/${id}`, { action });
       setMessage(response.data.msg);
       setIsError(false);
       fetchPendingSchedules(); // Refresh daftar pending

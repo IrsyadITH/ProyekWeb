@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import loginBg from "../img/background.jpeg"; // Gambar latar
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const Login = ({ onLoginSuccess }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post(`${API_URL}/login`, {
         email,
         password,
       });

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import SidebarUser from './SidebarUser';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const RuanganUser = () => {
   const [rooms, setRuangan] = useState([]);
@@ -11,7 +12,7 @@ const RuanganUser = () => {
 
   const getRuangan = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/ruangan");
+      const response = await axios.get(`${API_URL}/ruangan`);
       setRuangan(response.data);
     } catch (error) {
       console.error('Gagal mengambil data ruangan:', error);

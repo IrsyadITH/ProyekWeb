@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const EditRuangan = ({ room, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ const EditRuangan = ({ room, onSuccess }) => {
       }
 
       // PATCH dengan ID ruangan
-      await axios.patch(`http://localhost:5000/ruangan/${room.id}`, data, {
+      await axios.patch(`${API_URL}/ruangan/${room.id}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

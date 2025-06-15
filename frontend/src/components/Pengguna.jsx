@@ -3,6 +3,7 @@ import axios from "axios";
 import SidebarAdmin from './SidebarAdmin';
 import AddUser from './AddUser';
 import EditUser from './EditUser';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Pengguna = () => {
     const [users, setUser] = useState([]);
@@ -16,7 +17,7 @@ const Pengguna = () => {
 
     const getUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/users');
+            const response = await axios.get(`${API_URL}/users`);
             setUser(response.data);
         } catch (error) {
             console.error(error);
@@ -25,7 +26,7 @@ const Pengguna = () => {
 
     const deleteUser = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/users/${id}`);
+            await axios.delete(`${API_URL}/users/${id}`);
             getUsers();
         } catch (error) {
             console.log(error);

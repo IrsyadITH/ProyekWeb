@@ -1,6 +1,7 @@
 // src/components/ScheduleForm.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL;
 
 // --- IMPORTANT: These constants MUST match what's in ScheduleTable.js ---
 // Ideally, import these from a shared constants file.
@@ -24,7 +25,7 @@ const ScheduleForm = ({ onSubmit }) => {
       try {
         setLoadingRooms(true);
         // Pastikan URL ini sesuai dengan endpoint backend Anda untuk mendapatkan kode ruangan
-        const response = await axios.get('http://localhost:5000/rooms/codes');
+        const response = await axios.get(`${API_URL}/rooms/codes`);
         setAvailableRooms(response.data);
         setLoadingRooms(false);
       } catch (error) {

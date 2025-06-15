@@ -9,14 +9,14 @@ const RuanganAdmin = () => {
   const [isModalActive, setIsModalActive] = useState(false);
   const [isEditModalActive, setIsEditModalActive] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
-
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     getRuangan();
   }, []);
 
   const getRuangan = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/ruangan");
+      const response = await axios.get(`${API_URL}/ruangan`);
       setRuangan(response.data);
     } catch (error) {
       console.error('Gagal mengambil data ruangan:', error);
@@ -25,7 +25,7 @@ const RuanganAdmin = () => {
 
   const deleteRuangan = async (ruanganId) => {
     try {
-      await axios.delete(`http://localhost:5000/ruangan/${ruanganId}`)
+      await axios.delete(`${API_URL}/ruangan/${ruanganId}`)
       getRuangan();
     } catch (error) {
       console.log(error);

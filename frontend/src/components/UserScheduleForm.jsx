@@ -1,6 +1,7 @@
 // src/components/DosenScheduleForm.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Masih perlu axios untuk fetch availableRooms
+const API_URL = import.meta.env.VITE_API_URL;
 
 // --- PENTING: Konstanta ini HARUS sama persis dengan yang ada di ScheduleTable.js ---
 const DAYS_FOR_TABLE = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"];
@@ -23,7 +24,7 @@ const DosenScheduleForm = ({ onFormSubmit, addedByRole}) => {
     const fetchRooms = async () => {
       try {
         setLoadingRooms(true);
-        const response = await axios.get('http://localhost:5000/rooms/codes');
+        const response = await axios.get(`${API_URL}/codes`);
         setAvailableRooms(response.data);
         setLoadingRooms(false);
       } catch (error) {

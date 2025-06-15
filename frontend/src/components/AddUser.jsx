@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AddUser = ({ isOpen, onClose, onUserAdded }) => {
     const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const AddUser = ({ isOpen, onClose, onUserAdded }) => {
     const saveUser = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/users', {
+            await axios.post(`${API_URL}/users`, {
                 email,
                 username,
                 password,

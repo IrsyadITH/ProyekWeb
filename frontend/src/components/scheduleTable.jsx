@@ -2,6 +2,7 @@ import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'rea
 import axios from 'axios';
 import './ScheduleTable.css';
 import { FaTrash } from 'react-icons/fa';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const DAYS_FOR_TABLE = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"];
 const TIME_SLOTS_FOR_TABLE = ["07.30 - 09.00", "09.05 - 10.35", "10.40 - 12.10", "13.30 - 15.00", "15.05 - 16.35", "16.40 - 18.10"];
@@ -23,7 +24,7 @@ const ScheduleTable = forwardRef((props, ref) => {
 
   const fetchSchedules = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/jadwal');
+      const response = await axios.get(`${API_URL}/jadwal`);
       setSchedules(response.data);
     } catch (error) {
       console.error('Gagal memuat data jadwal:', error);
@@ -32,7 +33,7 @@ const ScheduleTable = forwardRef((props, ref) => {
 
   const fetchRoomCodes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/rooms/codes');
+      const response = await axios.get(`${API_URL}/rooms/codes`);
       setRoomCodes(response.data);
     } catch (error) {
       console.error('Gagal memuat daftar kode ruangan:', error);
@@ -58,7 +59,7 @@ const ScheduleTable = forwardRef((props, ref) => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/jadwal/${id}`);
+      await axios.delete(`${API_URL}/jadwal/${id}`);
       await fetchSchedules();
     } catch (error) {
       console.error('Gagal menghapus jadwal:', error);

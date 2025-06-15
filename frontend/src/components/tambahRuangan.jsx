@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const TambahRuangan = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ const TambahRuangan = ({ onSuccess }) => {
 
       const token = localStorage.getItem('token');
 
-      await axios.post('http://localhost:5000/ruangan', data, {
+      await axios.post(`${API_URL}/ruangan`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`

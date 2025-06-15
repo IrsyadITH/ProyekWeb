@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const EditUser = ({ isOpen, onClose, userId, onUserUpdated }) => {
     const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const EditUser = ({ isOpen, onClose, userId, onUserUpdated }) => {
 
     const getUserById = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/users/${userId}`);
+            const response = await axios.get(`${API_URL}/users/${userId}`);
             const user = response.data;
             setEmail(user.email);
             setUsername(user.username);

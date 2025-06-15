@@ -4,6 +4,7 @@ import ScheduleTable from '../components/scheduleTable';
 import SidebarUser from './SidebarUser';
 import axios from 'axios'; // Impor axios
 import 'bulma/css/bulma.min.css';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const DashboardUser = () => {
     const [showForm, setShowForm] = useState(false);
@@ -40,7 +41,7 @@ const DashboardUser = () => {
         setMessage(''); // Bersihkan pesan sebelumnya
         setIsError(false);
         try {
-            const response = await axios.post('http://localhost:5000/jadwal/request', formData);
+            const response = await axios.post(`${API_URL}/jadwal/request`, formData);
             setMessage(response.data.msg); // Set pesan sukses
             setIsError(false);
 
