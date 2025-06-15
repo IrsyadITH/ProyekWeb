@@ -15,7 +15,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://proyekweb.vercel.app'], // ganti ini
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(fileUpload({
   useTempFiles: true,
