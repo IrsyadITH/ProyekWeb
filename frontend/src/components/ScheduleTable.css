@@ -1,0 +1,121 @@
+/* ScheduleTable.css */
+.schedule-container {
+ font-family: sans-serif;
+ padding: 20px;
+}
+
+.schedule-title {
+ font-size: 1.5em;
+ text-align: center;
+ margin-bottom: 15px;
+ font-weight: bold;
+}
+
+.schedule-nav ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: flex;
+ justify-content: center;
+ margin-bottom: 10px;
+}
+
+.schedule-nav ul li {
+ margin: 0 10px;
+}
+
+.schedule-nav ul li button {
+ border: none;
+ padding: 8px 15px;
+ background-color: #f0f0f0;
+ cursor: pointer;
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.schedule-nav ul li button:hover {
+ background-color: #e0e0e0;
+}
+
+.table-container {
+ overflow-x: auto;
+}
+
+.schedule-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 10px;
+ border: 1px solid #ddd;
+}
+
+.schedule-table th,
+.schedule-table td {
+ padding: 10px;
+ border: 1px solid #ddd;
+ text-align: center;
+}
+
+.schedule-table th {
+ background-color: #f7f7f7;
+ font-weight: bold;
+}
+
+.schedule-table thead th {
+ white-space: nowrap;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+ background-color: #f9f9f9;
+}
+
+.time-slot {
+ font-weight: bold;
+}
+
+.schedule-table td div {
+ padding: 5px;
+}
+
+.empty-header {
+ width: 20px; /* Adjust as needed */
+}
+
+.actions button {
+ padding: 5px 10px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 0.8em;
+}
+
+.actions .is-small {
+ font-size: 0.7em;
+ padding: 3px 8px;
+}
+
+.actions .is-danger {
+ background-color: #dc3545;
+ color: white;
+}
+
+.actions .is-danger:hover {
+ background-color: #c82333;
+}
+
+/* ScheduleTable.css - Tambahkan ini untuk tombol hari yang aktif */
+
+.schedule-nav ul li button {
+  /* ... gaya yang sudah ada ... */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
+}
+
+.schedule-nav ul li button.is-active {
+  background-color: #00d1b2; /* Warna 'primary' Bulma */
+  color: white;
+  font-weight: bold;
+}
+
+.schedule-nav ul li button.is-active:hover {
+  background-color: #00c4a7; /* Sedikit lebih gelap saat hover untuk yang aktif */
+}
+

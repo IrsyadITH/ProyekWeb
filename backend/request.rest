@@ -1,0 +1,108 @@
+
+###
+#USER REQUEST
+GET http://localhost:5000/users
+
+###
+GET http://localhost:5000/users/1
+
+###
+POST  http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "email": "dicky@gmail.com",
+    "password": "123",
+    "username": "Dicky",
+    "status": "Admin",
+    "prodi": "-",
+    "jurusan": "-"
+}
+
+
+###
+PATCH   http://localhost:5000/users/42
+Content-Type: application/json
+
+{
+    "email": "Irsyad@gmail.com",
+    "password": "irsyad123",
+    "username": "irsyad",
+    "status": "Mahasiswa",
+    "prodi": "Ilmu Komputer",
+    "jurusan": "Teknik Elektro dan Komputer"
+}
+
+###
+DELETE   http://localhost:5000/users/42
+
+###
+GET http://localhost:5000/ruangan
+
+###
+#ROOM REQUEST
+GET http://localhost:5000/ruangan/1
+
+###
+POST  http://localhost:5000/ruangan
+Content-Type: application/json
+
+{
+    "kodeRuangan": "R101",
+    "kapasitas": "30",
+    "aksesInternet": "LAN dan WiFi",
+    "fasilitas": "AC, Smart TV, Papan Tulis"
+}
+
+
+###
+PATCH   http://localhost:5000/ruangan/1
+Content-Type: application/json
+
+{
+    "kodeRuangan": "LAB 101",
+    "kapasitas": "30",
+    "aksesInternet": "LAN dan WiFi",
+    "fasilitas": "AC, Smart TV, Papan Tulis"
+}
+
+###
+DELETE   http://localhost:5000/ruangan/4
+
+###
+#SCHEDULE REQUEST
+GET http://localhost:5000/jadwal
+
+
+###
+GET http://localhost:5000/jadwal/4
+
+###
+POST  http://localhost:5000/jadwal
+Content-Type: application/json
+
+{
+    "hari": "Senin",
+    "jam": "07:30-09-00",
+    "kodeRuangan": "R101",
+    "kodeKelas": "IK22-A",
+    "mataKuliah": "Rekayasa Web",
+    "dosenPengampu": "11JF"
+}
+
+###
+DELETE   http://localhost:5000/jadwal/13
+
+###
+#REQUEST LOGIN
+POST  http://localhost:5000/loginUser
+Content-Type: application/json
+
+{
+    "email":"Irsyad@gmail.com",
+    "password":"123"
+}
+
+###
+GET http://localhost:5000/api/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiSXJzeWFkQGdtYWlsLmNvbSIsInN0YXR1cyI6Ik1haGFzaXN3YSIsImlhdCI6MTc0NzI4OTg2OCwiZXhwIjoxNzQ3MjkzNDY4fQ.euiybh3td0Mo4M3P6bomF9ZXUldgaOgzA6nylwOVQbU
