@@ -3,7 +3,7 @@ import axios from "axios";
 import SidebarAdmin from './SidebarAdmin';
 import AddUser from './AddUser';
 import EditUser from './EditUser';
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Pengguna = () => {
     const [users, setUser] = useState([]);

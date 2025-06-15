@@ -1,7 +1,7 @@
 // src/components/DosenScheduleForm.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Masih perlu axios untuk fetch availableRooms
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 // --- PENTING: Konstanta ini HARUS sama persis dengan yang ada di ScheduleTable.js ---
 const DAYS_FOR_TABLE = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"];

@@ -4,7 +4,7 @@ import ScheduleTable from '../components/scheduleTable';
 import SidebarUser from './SidebarUser';
 import axios from 'axios'; // Impor axios
 import 'bulma/css/bulma.min.css';
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 const DashboardUser = () => {
     const [showForm, setShowForm] = useState(false);

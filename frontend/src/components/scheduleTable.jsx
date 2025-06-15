@@ -2,7 +2,7 @@ import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'rea
 import axios from 'axios';
 import './ScheduleTable.css';
 import { FaTrash } from 'react-icons/fa';
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 const DAYS_FOR_TABLE = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"];
 const TIME_SLOTS_FOR_TABLE = ["07.30 - 09.00", "09.05 - 10.35", "10.40 - 12.10", "13.30 - 15.00", "15.05 - 16.35", "16.40 - 18.10"];

@@ -3,13 +3,13 @@ import axios from "axios";
 import TambahRuangan from './tambahRuangan';
 import EditRuangan from './editRuangan';
 import SidebarAdmin from './SidebarAdmin';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const RuanganAdmin = () => {
   const [rooms, setRuangan] = useState([]);
   const [isModalActive, setIsModalActive] = useState(false);
   const [isEditModalActive, setIsEditModalActive] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
-  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     getRuangan();
   }, []);
