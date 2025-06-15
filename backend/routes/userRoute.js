@@ -12,19 +12,20 @@ import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router();
 
 // Rute login & autentikasi
-outer.post('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   console.log("Login hit!");
   next();
 }, loginUser);
+
 router.get('/me', verifyToken, (req, res) => {
   res.json({ msg: "Ini data pribadi user", user: req.user });
 });
 
 // Rute user lainnya
-router.get('/users', getUsers)
-router.get('/users/:id', getUsersById)
-router.post('/users', createUser)
-router.patch('/users/:id', updateUser)
-router.delete('/users/:id', deleteUser)
+router.get('/users', getUsers);
+router.get('/users/:id', getUsersById);
+router.post('/users', createUser);
+router.patch('/users/:id', updateUser);
+router.delete('/users/:id', deleteUser);
 
 export default router;
