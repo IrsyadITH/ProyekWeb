@@ -14,7 +14,7 @@ const Login = ({ onLoginSuccess }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API_URL}/login`, {
+      const res = await axios.post(`https://proyekweb-production.up.railway.app/api/login`, {
         email,
         password,
       });
