@@ -24,7 +24,7 @@ const DosenScheduleForm = ({ onFormSubmit, addedByRole}) => {
     const fetchRooms = async () => {
       try {
         setLoadingRooms(true);
-        const response = await axios.get(`${API_URL}/codes`);
+        const response = await axios.get(`${API_URL}/rooms/codes`);
         setAvailableRooms(response.data);
         setLoadingRooms(false);
       } catch (error) {
