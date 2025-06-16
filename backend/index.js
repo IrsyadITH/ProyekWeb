@@ -11,7 +11,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: [''https://proyekweb-77dr7gee1-irsyadiths-projects.vercel.app''],
+  origin: [
+    'https://proyekweb.vercel.app',
+    'https://proyekweb-77dr7gee1-irsyadiths-projects.vercel.app'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
