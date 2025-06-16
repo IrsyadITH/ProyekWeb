@@ -1,9 +1,8 @@
-// src/components/DosenScheduleForm.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Masih perlu axios untuk fetch availableRooms
 const API_URL = process.env.REACT_APP_API_URL;
 
-// --- PENTING: Konstanta ini HARUS sama persis dengan yang ada di ScheduleTable.js ---
 const DAYS_FOR_TABLE = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"];
 const TIME_SLOTS_FOR_TABLE = ["07.30 - 09.00", "09.05 - 10.35", "10.40 - 12.10", "13.30 - 15.00", "15.05 - 16.35", "16.40 - 18.10"];
 // ----------------------------------------------------------------------------------
