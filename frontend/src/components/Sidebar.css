@@ -39,7 +39,7 @@
 .menu-list li a,
 .sidebar-bottom a,
 .logout-btn {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: #ddd;
+  color: #000000;
 }
 
 .user-info .username {
